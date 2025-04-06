@@ -1,0 +1,50 @@
+{
+  "name": "@diascan/app",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "backend": "concurrently \"npm run auth\" \"npm run fastapi1\" \"npm run fastapi2\" \"npm run fastapi3\" \"npm run fastapi4\" \"npm run fastapi5\" ",
+    "auth": "cd diascan-backend && nodemon index.js",
+    "fastapi1": "cd Backend_DiaType/Backend_type && uvicorn app:app --host 127.0.0.1 --port 8000 --reload",
+    "fastapi2": "cd Backend_DiaType/detection && uvicorn form:app --host 127.0.0.1 --port 8001 --reload",
+    "fastapi3": "cd fastapi && uvicorn main:app --host 127.0.0.1 --port 8002 --reload",
+    "fastapi4": "cd Chatbot-back && uvicorn chat:app --host 127.0.0.1 --port 8003 --reload",
+    "fastapi5": "cd dash-show && uvicorn main2:app --host 127.0.0.1 --port 8004 --reload"
+  },
+  "dependencies": {
+    "@redux-devtools/extension": "^3.3.0",
+    "@reduxjs/toolkit": "^2.6.1",
+    "axios": "^1.8.4",
+    "concurrently": "^9.1.2",
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.6",
+    "framer-motion": "^12.5.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.487.0",
+    "next": "^15.2.1",
+    "next-redux-wrapper": "^8.1.0",
+    "next-themes": "^0.2.1",
+    "pdf-parse": "^1.1.1",
+    "pnpm": "^10.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-leaflet": "^4.2.1",
+    "react-modal-video": "^2.0.0",
+    "react-redux": "^9.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2"
+  }
+}
