@@ -39,10 +39,10 @@ const DiabetesDetectionService = () => {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-              AI-Powered Diabetes Detection
+              Diabetes Detection
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              Take control of your health with our advanced diabetes detection system. Choose from two simple options to check your risk—upload a medical report for AI-driven analysis or manually enter your details for an instant evaluation.
+              Take control of your health with our advanced diabetes detection system. Choose from two simple options to check your risk—upload a medical report for analysis or manually enter your details for an instant evaluation.
             </p>
 
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -50,7 +50,7 @@ const DiabetesDetectionService = () => {
             </h3>
             <ul className="space-y-3 text-gray-800 dark:text-gray-300">
               <li className="flex items-center">
-                 <b>Accurate AI Analysis:</b> Get instant insights based on your health data.
+                 <b>Accurate Analysis:</b> Get instant insights based on your health data.
               </li>
               <li className="flex items-center">
                  <b>Easy & Convenient:</b> Upload reports or manually enter details effortlessly.
@@ -59,7 +59,7 @@ const DiabetesDetectionService = () => {
                  <b>Secure & Private:</b> Your health information remains confidential and protected.
               </li>
               <li className="flex items-center">
-                 <b>Expert-Backed:</b> Powered by medical research and AI-driven prediction models.
+                 <b>Expert-Backed:</b> Powered by medical research and prediction models.
               </li>
             </ul>
 
@@ -72,7 +72,7 @@ const DiabetesDetectionService = () => {
                   📄 Detect via Report Upload
                 </h3>
                 <p className="text-gray-700 dark:text-gray-400 mb-2">
-                  Upload your blood test report (PDF) for AI-based diabetes detection in seconds.
+                  Upload your blood test report (PDF) for diabetes detection in seconds.
                 </p>
 
                 <input
@@ -101,7 +101,7 @@ const DiabetesDetectionService = () => {
                   ✍️ Detect via Manual Input
                 </h3>
                 <p className="text-gray-700 dark:text-gray-400 mb-2">
-                  Enter your health parameters (glucose, BMI, age, etc.) and get an instant risk assessment.
+                  Enter your health parameters (glucose, BMI, age, etc.) and get an instant Diabetes Detection.
                 </p>
                 <button
                   onClick={() => router.push("/DiabetesForm")}
@@ -114,7 +114,7 @@ const DiabetesDetectionService = () => {
 
             <div className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                🔬 How Our AI Works
+                🔬 How Our Detection Works
               </h3>
               <p className="text-gray-700 dark:text-gray-400">
                 Our machine-learning model analyzes various health indicators and predicts diabetes risk with high accuracy. The model is trained on vast medical datasets to ensure reliable results.
