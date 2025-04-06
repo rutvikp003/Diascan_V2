@@ -1,4 +1,9 @@
+# Next.js
 node_modules/
 .vscode/
 .env.local/
 .next/
+out/
+.env
+.DS_Store
+*.log

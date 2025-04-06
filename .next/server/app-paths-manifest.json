@@ -1,7 +1,1 @@
-{
-  "/page": "app/page.js",
-  "/Diabetes_type/page": "app/Diabetes_type/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/signin/page": "app/signin/page.js",
-  "/profile/page": "app/profile/page.js"
-}
+{}
