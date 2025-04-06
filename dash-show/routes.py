@@ -21,7 +21,7 @@ def get_user_dashboard_data(Email: str):
     detections_collection = db["detections"]  # Access the 'detections' collection
 
     # Find the last 2 assessments for the user, sorted by `assessment_date` in descending order
-    user_data = list(detections_collection.find({"Email": Email}).sort("timestamp", -1).limit(2))
+    user_data = list(detections_collection.find({"Email": Email}).sort("timestamp", -1))
     if not user_data:
         raise HTTPException(status_code=404, detail="No assessment data found for this user")
 

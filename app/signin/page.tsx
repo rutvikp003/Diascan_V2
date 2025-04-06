@@ -37,6 +37,8 @@ const SignIn = () => {
       localStorage.setItem("token", data.token); // Store JWT
       localStorage.setItem("user_id", JSON.stringify(data.user)); // Store user data
       localStorage.setItem("Email", JSON.stringify(data.user.email)); // Store user Email
+      localStorage.setItem("Name", JSON.stringify(data.user.name)); // Store user Email
+
 
       
       setTimeout(() => {

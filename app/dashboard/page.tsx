@@ -5,8 +5,9 @@ import Sidebar from '@/components/Dashboard/Sidebar';
 import Header from '@/components/Dashboard/Header_dash';
 import DataCard from '@/components/Dashboard/DataCard';
 import Calendar from '@/components/Dashboard/Calendar';
-import Glucometer from '@/components/Dashboard/Glucometer';
 import RiskMeter from '@/components/Dashboard/RiskMeter';
+import HealthTrendLineChart from '@/components/Dashboard/HealthTrendLineChart';
+
 
 const Dashboard = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const Dashboard = () => {
   
   useEffect(() => {
     const Email = localStorage.getItem("Email")?.replace(/^"|"$/g, "");
-    console.log("Email mila",Email);
+
     const token = localStorage.getItem("token");
   
     if (!Email || !token) {
@@ -37,13 +38,12 @@ const Dashboard = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         const result = await response.json();
-        console.log(result,"madigayu");
+        console.log("this is result",result);
         if (!response.ok) throw new Error(result.detail || "Failed to fetch data");
   
         setData(result.data || []);
       } catch (err) {
         setError(err.message);
-        console.log("error aati, tumhe coding nai aati");
       } finally {
         setLoading(false);
       }
@@ -110,8 +110,12 @@ const Dashboard = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <RiskMeter />
                 <Calendar />
-                <Glucometer />
               </div>
+              <div className="p-6 space-y-6">
+                {loading ? <p>Loading...</p> : <HealthTrendLineChart data={data} />}
+              </div>
+
+
             </>
           ) : (
             <p className="text-gray-600">No assessment data found.</p>
