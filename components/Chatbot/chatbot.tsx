@@ -18,7 +18,7 @@ const ChatbotBox = () => {
         setIsTyping(true);
 
         try {
-            const res = await axios.post('http://localhost:8003/chat', { 
+            const res = await axios.post('http://localhost:8003/diabetes_chatbot', { 
                 message: input,
             });
             const botMessage = {

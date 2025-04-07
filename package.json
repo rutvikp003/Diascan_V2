@@ -12,7 +12,7 @@
     "fastapi1": "cd Backend_DiaType/Backend_type && uvicorn app:app --host 127.0.0.1 --port 8000 --reload",
     "fastapi2": "cd Backend_DiaType/detection && uvicorn form:app --host 127.0.0.1 --port 8001 --reload",
     "fastapi3": "cd fastapi && uvicorn main:app --host 127.0.0.1 --port 8002 --reload",
-    "fastapi4": "cd Chatbot-back && uvicorn chat:app --host 127.0.0.1 --port 8003 --reload",
+    "fastapi4": "cd Chatbot-back && uvicorn diabetes_chatbot:app --host 127.0.0.1 --port 8003 --reload",
     "fastapi5": "cd dash-show && uvicorn main2:app --host 127.0.0.1 --port 8004 --reload"
   },
   "dependencies": {

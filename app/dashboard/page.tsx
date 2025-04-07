@@ -108,14 +108,13 @@ const Dashboard = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <RiskMeter />
-                <Calendar />
+                <div className="lg:col-span-2">
+                  {loading ? <p>Loading...</p> : <HealthTrendLineChart data={data} />}
+                </div>
+                <div className="lg:col-span-1">
+                  <RiskMeter />
+                </div>
               </div>
-              <div className="p-6 space-y-6">
-                {loading ? <p>Loading...</p> : <HealthTrendLineChart data={data} />}
-              </div>
-
-
             </>
           ) : (
             <p className="text-gray-600">No assessment data found.</p>

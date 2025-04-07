@@ -33,12 +33,31 @@ const HealthTrendLineChart: React.FC<HealthTrendLineChartProps> = ({ data }) => 
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
+          <XAxis
+            dataKey="timestamp"
+            tickFormatter={(value) => new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+          />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="fasting_glucose" stroke="#60a5fa" strokeWidth={3} name="Glucose" />
-          <Line type="monotone" dataKey="insulin_level" stroke="#f87171" strokeWidth={3} name="Insulin level" />
+          <Line
+            type="monotone"
+            dataKey="fasting_glucose"
+            stroke="#60a5fa"
+            strokeWidth={3}
+            name="Glucose"
+            dot={false}
+            isAnimationActive={true}
+          />
+          <Line
+            type="monotone"
+            dataKey="insulin_level"
+            stroke="#f87171"
+            strokeWidth={3}
+            name="insulin"
+            dot={false}
+            isAnimationActive={true}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
