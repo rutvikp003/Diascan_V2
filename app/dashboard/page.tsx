@@ -55,7 +55,7 @@ const Dashboard = () => {
 
   const latest = data.length > 0 ? data[0] : null;
   const previous = data.length > 1 ? data[1] : null;
-
+  const date = (value) => new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
   const calculateChange = (latestValue, prevValue) => {
     if (!latestValue || !prevValue) return { value: "N/A", type: "neutral" };
     const change = parseFloat(latestValue) - parseFloat(prevValue);
@@ -75,7 +75,12 @@ const Dashboard = () => {
             <p className="text-red-500">{error}</p>
           ) : latest ? (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+                <DataCard
+                  title="Age"
+                  value={latest.age || '-'}
+                  change={calculateChange(latest.c_peptide, previous?.c_peptide)}
+                />
                 <DataCard
                   title="Glucose Level"
                   value={`${latest.fasting_glucose || '-'} mg/dL`}
@@ -83,6 +88,11 @@ const Dashboard = () => {
                 />
                 <DataCard
                   title="C_peptide"
+                  value={latest.c_peptide || '-'}
+                  change={calculateChange(latest.c_peptide, previous?.c_peptide)}
+                />
+                <DataCard
+                  title="Hemoglobin A1c"
                   value={latest.c_peptide || '-'}
                   change={calculateChange(latest.c_peptide, previous?.c_peptide)}
                 />
@@ -98,12 +108,14 @@ const Dashboard = () => {
                     , previous?.insulin_level)}
                 />
                 <DataCard
-                  title="Diabetes Risk Level"
+                  title="Damage Risk Level"
                   value={latest.overall_damage_probability || '-'}
                 />
                 <DataCard
                   title="Last Assessment Date"
-                  value={latest.timestamp || '-'}
+                  value={latest.timestamp
+                          ? new Date(latest.timestamp).toLocaleDateString()
+                          : '-'}
                 />
               </div>
 
@@ -112,7 +124,7 @@ const Dashboard = () => {
                   {loading ? <p>Loading...</p> : <HealthTrendLineChart data={data} />}
                 </div>
                 <div className="lg:col-span-1">
-                  <RiskMeter />
+                  <RiskMeter data={latest.overall_damage_probability}/>
                 </div>
               </div>
             </>

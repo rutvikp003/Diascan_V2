@@ -1,7 +1,14 @@
 'use client';
+import { stringify } from 'querystring';
 import React from 'react';
+interface HealthTrendLineChartProps {
+  data: string;
+}
 
-const RiskMeter = () => {
+const RiskMeter : React.FC<HealthTrendLineChartProps> = ({ data }) => {
+  if (!data || data.length === 0) {
+    return <p className="text-center text-gray-500">No health data available.</p>;
+  }
   const percentage = 50; // You can make this dynamic
   const strokeWidth = 12;
   const radius = 55;
@@ -9,6 +16,7 @@ const RiskMeter = () => {
   const circumference = Math.PI * normalizedRadius;
   const arcLength = (percentage / 100) * circumference;
 
+  
   return (
     <div className="bg-white rounded-xl p-6 text-center shadow-md w-full mx-auto relative bg-white dark:bg-gray-100">
       <h3 className="text-sm font-semibold text-gray-700 mb-5">
@@ -47,8 +55,10 @@ const RiskMeter = () => {
 
         {/* Centered Text inside Arc */}
         <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center mt-4">
-          <p className="text-blue-600 text-xl font-bold">{percentage}%</p>
-          <p className="text-gray-700 text-sm">Low risk</p>
+          <p className="text-blue-600 text-xl font-bold">{data}</p>
+          <p className="text-gray-700 text-sm">
+            <span className="text-blue-600 font-bold">Risk of Demage</span>
+          </p>
         </div>
       </div>
 

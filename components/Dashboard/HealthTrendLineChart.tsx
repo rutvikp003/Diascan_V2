@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 
 interface HealthDataEntry {
-	timestamp: string;
+	  timestamp: string;
     fasting_glucose: number;
     insulin_level: number;
 }
@@ -28,8 +28,8 @@ const HealthTrendLineChart: React.FC<HealthTrendLineChartProps> = ({ data }) => 
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow p-4 w-full h-96">
-      <h2 className="text-lg font-semibold mb-4">Glucose & Insulin level Trends</h2>
+    <div className="bg-white rounded-2xl shadow p-4 w-full h-80">
+      <h2 className="text-lg font-semibold mb-4 text-dark dark:text-dark">Glucose & Insulin level Trends</h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />

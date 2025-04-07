@@ -12,9 +12,9 @@ const DataCard = ({ title, value, change }: { title: any; value: any; change?: a
 
   return (
   <>
-    <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg p-4 flex flex-col justify-between">
+    <div className="text-dark bg-white dark:bg-gray-100 shadow-md rounded-lg p-4 flex flex-col justify-between">
       <h3 className="text-lg font-medium">{title}</h3>
-      <div className="flex items-center gap-2">
+      <div className="flex justify-between items-center gap-2">
         <span className="text-2xl font-bold">{value || "N/A"}</span>
         {change && (
           <div className="flex items-center">
