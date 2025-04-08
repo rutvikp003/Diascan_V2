@@ -4,10 +4,10 @@ import React from 'react';
 const Header = () => {
   return (
   <>
-    <div className="px-6 py-4 shadow-sm bg-gray-100 dark:bg-gray-800">
+    <div className="px-4 m-4 rounded-2xl py-4 shadow-sm bg-blue-200 ">
       {/* Title and Filters */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mt-4 bg-gray-100 dark:bg-gray-800">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-800">
           Your Data for the AI Prediction of Diabetes
         </h2>
         <div className="flex gap-2 mt-2 md:mt-0">

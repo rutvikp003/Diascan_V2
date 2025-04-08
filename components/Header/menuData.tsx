@@ -90,6 +90,12 @@ const menuData: Menu[] = [
         path: "/dashboard",
         newTab: false,
       },
+      {
+        id: 59,
+        title: "tips page",
+        path: "/Health_&_wellness",
+        newTab: false,
+      },
     ],
   },
 ];

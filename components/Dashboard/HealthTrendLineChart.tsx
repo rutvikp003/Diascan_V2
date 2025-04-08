@@ -35,7 +35,10 @@ const HealthTrendLineChart: React.FC<HealthTrendLineChartProps> = ({ data }) => 
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="timestamp"
-            tickFormatter={(value) => new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+            tickFormatter={(timestamp) => new Date(timestamp).toLocaleDateString()}
+            angle={0}
+            textAnchor="end"
+            interval={0}
           />
           <YAxis />
           <Tooltip />

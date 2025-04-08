@@ -55,7 +55,6 @@ const Dashboard = () => {
 
   const latest = data.length > 0 ? data[0] : null;
   const previous = data.length > 1 ? data[1] : null;
-  const date = (value) => new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
   const calculateChange = (latestValue, prevValue) => {
     if (!latestValue || !prevValue) return { value: "N/A", type: "neutral" };
     const change = parseFloat(latestValue) - parseFloat(prevValue);
@@ -75,7 +74,7 @@ const Dashboard = () => {
             <p className="text-red-500">{error}</p>
           ) : latest ? (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
                 <DataCard
                   title="Age"
                   value={latest.age || '-'}
@@ -120,10 +119,10 @@ const Dashboard = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="lg:col-span-2">
+                <div className="lg:col-span-2 w-full">
                   {loading ? <p>Loading...</p> : <HealthTrendLineChart data={data} />}
                 </div>
-                <div className="lg:col-span-1">
+                <div className="w-full">
                   <RiskMeter data={latest.overall_damage_probability}/>
                 </div>
               </div>
