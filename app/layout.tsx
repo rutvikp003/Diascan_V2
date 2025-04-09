@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import "@/components/Map";
 import ChatbotBox from "@/components/Chatbot/chatbot";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
