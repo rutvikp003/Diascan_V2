@@ -68,7 +68,9 @@ const ProfilePage = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("user");    
+    localStorage.removeItem("Name");
+    localStorage.removeItem("user_id");
     localStorage.removeItem("token");
     localStorage.removeItem("Email");
     dispatch({ type: "LOGOUT" });
@@ -80,7 +82,7 @@ const ProfilePage = () => {
     <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
       <div className="container">
         <div className="flex flex-wrap justify-center">
-          <div className="w-full max-w-5xl rounded-lg bg-gray-200 p-8 shadow-lg dark:bg-dark">
+          <div className="w-full max-w-5xl rounded-lg bg-white p-8 shadow-xl dark:bg-dark">
             <h2 className="text-3xl font-bold text-center mb-6">
               Profile Page
             </h2>
@@ -101,6 +103,7 @@ const ProfilePage = () => {
                   type="file"
                   ref={fileInputRef}
                   className="hidden"
+                  accept="image/*"
                   onChange={handleImageChange}
                 />
               </div>
@@ -114,8 +117,8 @@ const ProfilePage = () => {
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full p-3 rounded-lg bg-gray-400 dark:bg-gray-800 text-white border border-gray-700"
-                    />
+                      className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      />
                   </div>
 
                   <div>
@@ -124,8 +127,8 @@ const ProfilePage = () => {
                       type="email"
                       defaultValue={email}
                       readOnly={user?.authType === "google"}
-                      className="w-full p-3 rounded-lg bg-gray-400 dark:bg-gray-800 text-white border border-gray-700"
-                    />
+                      className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      />
                   </div>
 
                   <div>
@@ -134,8 +137,8 @@ const ProfilePage = () => {
                       type="date"
                       value={dob}
                       onChange={(e) => setDob(e.target.value)}
-                      className="w-full p-3 rounded-lg bg-gray-400 dark:bg-gray-800 text-white border border-gray-700"
-                    />
+                      className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      />
                   </div>
 
                   <div>
@@ -143,8 +146,8 @@ const ProfilePage = () => {
                     <select
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
-                      className="w-full p-3 rounded-lg bg-gray-400 dark:bg-gray-800 text-white border border-gray-700"
-                    >
+                      className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      >
                       <option value="">Select Gender</option>
                       <option id="1" value="male">Male</option>
                       <option id="2" value="female">Female</option>

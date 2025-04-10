@@ -123,7 +123,7 @@ const handleSubmit = async () => {
 
   return (
     <>
-      <section className="relative z-10 overflow-hidden bg-gray-200 pb-16 pt-[80px] dark:bg-dark">
+      <section className="relative z-10 overflow-hidden pb-16 pt-[80px] dark:bg-dark">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
             <div className="mt-10">
@@ -134,7 +134,7 @@ const handleSubmit = async () => {
                 Fill in the details to check your diabetes risk.
               </p>
             </div>
-            <div className="flex flex-col item-center w-full max-w-2xl bg-gray-300 p-10 rounded-lg shadow-lg dark:bg-gray-900">
+            <div className="flex flex-col item-center w-full max-w-2xl bg-white p-10 rounded-lg shadow-lg dark:bg-gray-900">
               <div className="grid gap-4">
               {Object.entries(formData).map(([field, value]) => (
                   <div key={field} className="flex flex-col">
@@ -146,7 +146,7 @@ const handleSubmit = async () => {
                     </label>
                     <input
                       id={field}
-                      className="w-full p-3 rounded-lg bg-dark-100 text-white border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800"
+                      className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                       type="number"
                       name={field}
                       placeholder={`${field.replace(/_/g, " ")}`}

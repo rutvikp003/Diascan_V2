@@ -38,8 +38,6 @@ const SignIn = () => {
       localStorage.setItem("user_id", JSON.stringify(data.user)); // Store user data
       localStorage.setItem("Email", JSON.stringify(data.user.email)); // Store user Email
       localStorage.setItem("Name", JSON.stringify(data.user.name)); // Store user Email
-
-
       
       setTimeout(() => {
         router.refresh() // Redirect after reload
@@ -58,7 +56,7 @@ const SignIn = () => {
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
-          <div className="shadow-three mx-auto max-w-[600px] rounded bg-gray-100 px-6 py-10 dark:bg-dark sm:p-[60px]">
+            <div className="shadow-xl mx-auto max-w-[600px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
             <h2 className="text-3xl font-bold text-center mb-6">
               Sign in to your account
             </h2>
@@ -83,7 +81,7 @@ const SignIn = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full p-3 rounded-lg bg-gray-200 text-white border border-gray-700 mb-3 dark:bg-gray-800"
+                  className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
@@ -95,7 +93,7 @@ const SignIn = () => {
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="w-full p-3 rounded-lg bg-gray-200 text-white border border-gray-700 mb-3 dark:bg-gray-800"
+                  className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
@@ -166,7 +164,7 @@ const SignIn = () => {
               )}
 
 
-          </div>
+            </div>
           </div>
         </div>
       </div>

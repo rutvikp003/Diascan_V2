@@ -41,11 +41,11 @@ const diseases = [
     desc: "High blood sugar can damage blood vessels, leading to heart problems.",
     image: "/images/guidelines/cardiovascular.jpeg",
     fullText: [
-      "✅ Control Blood Sugar: Maintain a normal glucose level to prevent artery damage.",
-      "✅ Heart-Healthy Diet: Eat fiber-rich foods (oats, nuts, beans) and reduce saturated fats.",
-      "✅ Exercise Regularly: 30 minutes of daily walking helps reduce heart risks.",
-      "✅ Monitor Blood Pressure & Cholesterol: Keep BP below 130/80 and LDL cholesterol low.",
-      "✅ Quit Smoking & Limit Alcohol: Both increase heart disease risk.",
+      " Control Blood Sugar: Maintain a normal glucose level to prevent artery damage.",
+      " Heart-Healthy Diet: Eat fiber-rich foods (oats, nuts, beans) and reduce saturated fats.",
+      " Exercise Regularly: 30 minutes of daily walking helps reduce heart risks.",
+      " Monitor Blood Pressure & Cholesterol: Keep BP below 130/80 and LDL cholesterol low.",
+      " Quit Smoking & Limit Alcohol: Both increase heart disease risk.",
     ],
   },
   {
@@ -54,10 +54,10 @@ const diseases = [
     desc: "High blood sugar damages nerve endings, causing numbness and tingling.",
     image: "/images/guidelines/nerve_damage.jpeg",
     fullText: [
-      "✅ Keep Blood Sugar in Check: A1C should be below 7% to prevent nerve damage.",
-      "✅ Foot Care Routine: Inspect feet daily for cuts or sores. Keep them moisturized.",
-      "✅ Stay Active: Regular movement improves blood circulation to nerves.",
-      "✅ Pain Management: Use warm baths, gentle stretching, and doctor-approved medications.",
+      " Keep Blood Sugar in Check: A1C should be below 7% to prevent nerve damage.",
+      " Foot Care Routine: Inspect feet daily for cuts or sores. Keep them moisturized.",
+      " Stay Active: Regular movement improves blood circulation to nerves.",
+      " Pain Management: Use warm baths, gentle stretching, and doctor-approved medications.",
     ],
   },
   {
@@ -66,11 +66,11 @@ const diseases = [
     desc: "Diabetes can weaken kidney function, leading to kidney failure over time.",
     image: "/images/guidelines/kidney_damage.jpeg",
     fullText: [
-      "✅ Control Blood Sugar & Blood Pressure: Target BP below 130/80, A1C below 7%.",
-      "✅ Low-Sodium Diet: Avoid processed foods, salty snacks, and red meat.",
-      "✅ Drink More Water: Keeps kidneys functioning properly.",
-      "✅ Regular Kidney Tests: Check urine protein levels every 6-12 months.",
-      "✅ Avoid Overuse of Painkillers: NSAIDs (like ibuprofen) can harm kidneys over time.",
+      " Control Blood Sugar & Blood Pressure: Target BP below 130/80, A1C below 7%.",
+      " Low-Sodium Diet: Avoid processed foods, salty snacks, and red meat.",
+      " Drink More Water: Keeps kidneys functioning properly.",
+      " Regular Kidney Tests: Check urine protein levels every 6-12 months.",
+      " Avoid Overuse of Painkillers: NSAIDs (like ibuprofen) can harm kidneys over time.",
     ],
   },
   {
@@ -79,11 +79,11 @@ const diseases = [
     desc: "Diabetes can damage the retina, causing blurry vision or blindness.",
     image: "/images/guidelines/retinopathy.jpeg",
     fullText: [
-      "✅ Regular Eye Exams: Get a retinal screening once a year.",
-      "✅ Control Blood Sugar & Blood Pressure: Prevents further eye damage.",
-      "✅ Eat Eye-Friendly Foods: Leafy greens (spinach, kale), Vitamin A-rich foods (carrots, fish, eggs).",
-      "✅ Use Proper Lighting & Reduce Screen Time: Protects eye health.",
-      "✅ Report Any Vision Changes Immediately: Blurriness, floaters, or dark spots need urgent attention.",
+      " Regular Eye Exams: Get a retinal screening once a year.",
+      " Control Blood Sugar & Blood Pressure: Prevents further eye damage.",
+      " Eat Eye-Friendly Foods: Leafy greens (spinach, kale), Vitamin A-rich foods (carrots, fish, eggs).",
+      " Use Proper Lighting & Reduce Screen Time: Protects eye health.",
+      " Report Any Vision Changes Immediately: Blurriness, floaters, or dark spots need urgent attention.",
     ],
   },
 ];
@@ -159,7 +159,7 @@ const Guidelines = () => {
               onClick={() => setExpandedGuideline(null)}
             >
               <motion.div
-                className="bg-dark rounded-2xl shadow-2xl overflow-hidden w-full max-w-3xl relative"
+                className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-3xl relative"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
@@ -175,7 +175,7 @@ const Guidelines = () => {
                   <h3 className="text-2xl font-bold dark:text-gray-100 text-gray-900">
                     {guidelines[expandedGuideline].title}
                   </h3>
-                  <p className="text-gray-400 mt-4">{guidelines[expandedGuideline].fullDescription}</p>
+                  <p className="text-gray-600 mt-4">{guidelines[expandedGuideline].fullDescription}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -222,7 +222,7 @@ const Guidelines = () => {
               onClick={() => setExpandedDisease(null)}
             >
               <motion.div
-                className="bg-dark rounded-2xl shadow-2xl overflow-hidden w-full max-w-3xl relative"
+                className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden w-full max-w-3xl relative"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
@@ -238,10 +238,10 @@ const Guidelines = () => {
                   <h3 className="text-2xl font-bold dark:text-gray-100 text-gray-900">
                     {diseases[expandedDisease].icon} {diseases[expandedDisease].title}
                   </h3>
-                  <p className="text-gray-400 mt-4">{diseases[expandedDisease].desc}</p>
+                  <p className="text-gray-600 mt-4">{diseases[expandedDisease].desc}</p>
                   <div className="mt-4 text-left">
                     {diseases[expandedDisease].fullText.map((point, i) => (
-                      <p key={i} className="text-gray-400 mb-2">✔ {point}</p>
+                      <p key={i} className="text-gray-500 mb-2">✔ {point}</p>
                     ))}
                   </div>
                 </div>

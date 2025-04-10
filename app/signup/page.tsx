@@ -60,7 +60,7 @@ const SignUp = () => {
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
-            <div className="shadow-three mx-auto max-w-[600px] rounded bg-gray-100 px-6 py-10 dark:bg-dark sm:p-[60px]">
+            <div className="shadow-xl mx-auto max-w-[600px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
               <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
                 Create your account
               </h3>
@@ -73,13 +73,14 @@ const SignUp = () => {
                 <span className="hidden h-[1px] w-full max-w-[120px] bg-body-color/50 sm:block"/>
               </div>
 
-            <form onSubmit={handleSubmit}>
-
+            <form 
+              className="space-y-4"
+              onSubmit={handleSubmit}
+              >
               <div>
                 <label 
                   htmlFor="name"
-                  className="mb-3 block text-sm text-dark dark:text-white"
-                  >  
+                  className="mb-3 block text-sm text-dark dark:text-white">
                   Name
                 </label>
                 <input
@@ -88,7 +89,7 @@ const SignUp = () => {
                   name="name"
                   placeholder="Enter your name"
                   value={formData.name}
-                  className="w-full p-3 rounded-lg bg-gray-200 text-white border border-gray-700 mb-3 dark:bg-gray-800"
+                  className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   onChange={handleChange}
                   required
                 />
@@ -97,8 +98,7 @@ const SignUp = () => {
               <div>
                 <label
                     htmlFor="email"
-                    className="mb-3 block text-sm text-dark dark:text-white"
-                >
+                    className="mb-3 block text-sm text-dark dark:text-white">
                   {" "}Email{" "}
                 </label>
                 <input 
@@ -107,7 +107,7 @@ const SignUp = () => {
                   name="email"
                   placeholder="Enter your email" 
                   value={formData.email}
-                  className="w-full p-3 rounded-lg bg-gray-200 text-white border border-gray-700 mb-3 dark:bg-gray-800"
+                  className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   onChange={handleChange}
                   required
                 />
@@ -125,7 +125,7 @@ const SignUp = () => {
                   name="password"
                   placeholder="Enter your password" 
                   value={formData.password}
-                  className="w-full p-3 rounded-lg bg-gray-200 text-white border border-gray-700 mb-3 dark:bg-gray-800"
+                  className="border-stroke dark:text-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                   onChange={handleChange}
                   required
                 />

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect} from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const DiabetesDetectionForm = () => {
   useEffect(() => {
@@ -77,7 +78,7 @@ const DiabetesDetectionForm = () => {
   };
 
   return (
-    <section className="relative z-10 overflow-hidden bg-gray-200 dark:bg-gray-800 pb-16 pt-[120px]">
+    <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
@@ -93,8 +94,20 @@ const DiabetesDetectionForm = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="max-w-3xl mx-auto bg-white p-10 rounded-lg shadow-lg dark:bg-gray-900"
+              className="max-w-3xl mx-auto bg-white p-10 rounded-lg shadow-lg dark:bg-dark"
             >
+              <div className="mb-4">
+                <label className="block text-gray-700 dark:text-white font-semibold">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                  className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                />
+              </div>
               {/* Age, Glucose, Blood Pressure, Insulin, BMI */}
               {["age", "glucose", "bloodPressure", "insulin", "bmi"].map((field) => (
                 <div key={field} className="mb-4">
@@ -106,13 +119,13 @@ const DiabetesDetectionForm = () => {
                     name={field}
                     placeholder={field.replace(/_/g, " ")}
                     required
-                    className="w-full p-3 rounded-lg bg-dark-100 text-white border border-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800"
+                    className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
                 </div>
               ))}
 
               {/* DPF Calculation */}
-              <div className="bg-gray-300 dark:bg-gray-700 p-4 rounded-lg">
+              <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   Diabetes Pedigree Function
                 </h3>
@@ -123,7 +136,7 @@ const DiabetesDetectionForm = () => {
                   <input
                     type="number"
                     name="relatives"
-                    className="input-field w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-white border border-gray-700"
+                    className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     onChange={handleDPFCalculation}
                   />
                 </div>
@@ -137,13 +150,18 @@ const DiabetesDetectionForm = () => {
                     name="closeness"
                     min="1"
                     max="10"
-                    className="input-field w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-white border border-gray-700"
+                    className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     onChange={handleDPFCalculation}
                   />
                 </div>
 
                 {dpf !== null && (
-                  <div className="mt-3">
+                  <motion.div
+                    className="mt-3"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       Calculated DPF
                     </label>
@@ -151,9 +169,9 @@ const DiabetesDetectionForm = () => {
                       type="text"
                       value={dpf.toFixed(2)}
                       readOnly
-                      className="w-full p-2 border rounded bg-gray-100 dark:bg-gray-800"
+                      className="border-stroke dark:text-white dark:shadow-lg w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-dark outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                     />
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
@@ -251,7 +269,6 @@ const DiabetesDetectionForm = () => {
               </defs>
             </svg>
           </div>
-
         </div>
       </div>
     </section>

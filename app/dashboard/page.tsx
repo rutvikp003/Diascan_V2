@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Dashboard/Sidebar';
 import Header from '@/components/Dashboard/Header_dash';
 import DataCard from '@/components/Dashboard/DataCard';
-import Calendar from '@/components/Dashboard/Calendar';
 import RiskMeter from '@/components/Dashboard/RiskMeter';
 import HealthTrendLineChart from '@/components/Dashboard/HealthTrendLineChart';
 

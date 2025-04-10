@@ -5,30 +5,30 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
-    designation: "Founder @TailGrids",
+    name: "Dr.Uttam Dalwadi",
+    designation: "M.B.B.S",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-01.png",
-    star: 5,
+      "The Smart Health app is a helpful tool for managing and tracking health and wellness. Despite some limitations, its user-friendly design, personalized insights, and broad features make it valuable.",
+    image: "/images/testimonials/Uttam.jpg",
+    star: 4,
   },
   {
     id: 2,
-    name: "Devid Weilium",
-    designation: "Founder @UIdeck",
+    name: "Dr.vishal Dalwadi",
+    designation: "M.B.B.S",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-02.png",
+    "It's a good initiative and I think it will be very useful for common people who are unaware about their health, so spending a little time on this website will be totally time effective as well as cost effective",
+    image: "/images/testimonials/Vishal.jpg",
     star: 5,
   },
   {
     id: 3,
-    name: "Lethium Frenci",
-    designation: "Founder @Lineicons",
+    name: "Dr.Varshil Joshi",
+    designation: "M.B.B.S",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-03.png",
-    star: 5,
+      "It's a good website for diabetic patients who aren't aware of medical terminologies. I think it simplifies the do's and don'ts for a diabetic patient quite well. The option of suggesting diet plans and workout plans is quite impressive",
+    image: "/images/testimonials/Varshil.jpg",
+    star: 4,
   },
 ];
 

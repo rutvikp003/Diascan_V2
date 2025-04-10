@@ -77,22 +77,15 @@ const DiabetesDetectionService = () => {
 
                 <input
                   type="file"
-                  accept="application/pdf"
-                  onChange={handleFileChange}
-                  className="block w-full mb-4 p-2 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                  accept="image/*,application/pdf"
+                  className="hidden"
+                  id="ocrFile"
+                  onChange={handleUpload}
                 />
 
-                <button
-                  onClick={handleUpload}
-                  className={`w-full sm:w-auto px-6 py-3 text-lg font-semibold text-white rounded-lg transition shadow-lg ${
-                    file
-                      ? "bg-blue-500 hover:blue-500"
-                      : "bg-gray-400 cursor-not-allowed"
-                  }`}
-                  disabled={!file}
-                >
-                  Upload & Detect
-                </button>
+                <label htmlFor="ocrFile" className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700">
+                  📎 Upload for Auto-Fill
+                </label>
               </div>
 
               {/* Manual Input Button */}

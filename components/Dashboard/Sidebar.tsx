@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaHome, FaEnvelope, FaFileAlt, FaClipboard, FaUserMd } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaHandHoldingMedical, FaClipboard, FaUserMd } from 'react-icons/fa';
+import { VscFeedback } from "react-icons/vsc";
 import Link from 'next/link';
 
 const Sidebar = () => {
@@ -15,22 +16,22 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="flex items-center space-x-4">
-          <FaEnvelope />
-          <span>Messages</span>
-        </li>
-        <li className="flex items-center space-x-4">
-          <FaFileAlt />
-          <span>AI Reports</span>
+          <FaHandHoldingMedical />
+          <Link href="/Health_&_wellness">
+          Health & Wellness Hub
+          </Link>
         </li>
         <li className="flex items-center space-x-4">
           <FaClipboard />
-          <Link href="/"> we have to add new guidlines page
+          <Link href="/Guidelines">
               Guidlines
           </Link>
         </li>
         <li className="flex items-center space-x-4">
           <FaUserMd />
-          <span>Help</span>
+          <Link href="/contact">
+              Support
+          </Link>
         </li>
       </ul>
     </aside>

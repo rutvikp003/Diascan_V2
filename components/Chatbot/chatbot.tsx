@@ -50,7 +50,7 @@ const ChatbotBox = () => {
             {/*------------------------------- Chat Icon Button------------------------------- */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-600 text-white rounded-full shadow-xl z-[60] flex justify-center items-center hover:scale-110 transition-transform duration-300"
+                className="fixed bottom-6 left-6 w-12 h-12 bg-blue-500 text-white rounded-full shadow-xl z-[60] flex justify-center items-center hover:scale-110 transition-transform duration-300"
             >
                 <Image
                     src={mychat}

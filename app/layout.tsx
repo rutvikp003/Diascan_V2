@@ -7,7 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
-import { Providers } from "./providers"; // Import the updated Providers
+import { Providers } from "./providers";
 import { Provider } from "react-redux";
 import store from "@/store";
 

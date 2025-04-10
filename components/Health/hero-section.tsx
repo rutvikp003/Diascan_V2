@@ -1,44 +1,28 @@
-import Link from "next/link";
-
-const Hero = () => {
+export function HeroSection() {
   return (
-    <>
-      <section
-        id="home"
-        className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
-      >
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div
-                className="wow fadeInUp mx-auto max-w-[800px] text-center"
-                data-wow-delay=".2s"
-              >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Your Health, Your Control <br/> Smart Diabetes Detection & Management
-                </h1>
-                <p className="dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
-                Upload your report or enter your glucose to check your diabetes risk and manage your health effortlessly.
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="/signup"  
-                    className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    🔥 Get started
-                  </Link>
-                  <Link
-                    href="/DiabetesForm"  
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                  >
-                    Check Now
-                  </Link>
-                </div>
-              </div>
+    <section
+    id="home"
+    className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+    >
+      <div className="container">
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4">
+            <div
+              className="wow fadeInUp mx-auto max-w-[800px] text-center"
+              data-wow-delay=".2s"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold mt-8 mb-4">Your Health & Wellness Hub</h1>
+              <p className="dark:text-body-color-dark pt-4 mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
+                Discover expert tips, routines, and <br />personalized guidance to manage your diabetes better.
+              </p>
+              <button className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80">
+                Explore Guide
+              </button>
             </div>
           </div>
         </div>
-        <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">
+      </div>
+      <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">
           <svg
             width="450"
             height="556"
@@ -46,12 +30,6 @@ const Hero = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle
-              cx="277"
-              cy="63"
-              r="225"
-              fill="url(#paint0_linear_25:217)"
-            />
             <circle
               cx="17.9997"
               cy="182"
@@ -70,30 +48,6 @@ const Hero = () => {
               r="180"
               transform="rotate(-37.6852 325.486 302.87)"
               fill="url(#paint3_linear_25:217)"
-            />
-            <circle
-              opacity="0.8"
-              cx="184.521"
-              cy="315.521"
-              r="132.862"
-              transform="rotate(114.874 184.521 315.521)"
-              stroke="url(#paint4_linear_25:217)"
-            />
-            <circle
-              opacity="0.8"
-              cx="356"
-              cy="290"
-              r="179.5"
-              transform="rotate(-30 356 290)"
-              stroke="url(#paint5_linear_25:217)"
-            />
-            <circle
-              opacity="0.8"
-              cx="191.659"
-              cy="302.659"
-              r="133.362"
-              transform="rotate(133.319 191.659 302.659)"
-              fill="url(#paint6_linear_25:217)"
             />
             <defs>
               <linearGradient
@@ -175,8 +129,8 @@ const Hero = () => {
               </linearGradient>
             </defs>
           </svg>
-        </div>
-        <div className="absolute bottom-0 left-0 z-[-1] opacity-30 lg:opacity-100">
+      </div>
+      <div className="absolute bottom-0 left-0 z-[-1] opacity-30 lg:opacity-100">
           <svg
             width="364"
             height="201"
@@ -278,10 +232,7 @@ const Hero = () => {
               </radialGradient>
             </defs>
           </svg>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default Hero;
+      </div>
+    </section>
+  )
+}

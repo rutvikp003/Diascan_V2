@@ -80,19 +80,13 @@ const menuData: Menu[] = [
       },
       {
         id: 58,
-        title: "Error Page",
-        path: "/error",
-        newTab: false,
-      },
-      {
-        id: 58,
         title: "dashboard page",
         path: "/dashboard",
         newTab: false,
       },
       {
         id: 59,
-        title: "tips page",
+        title: "Health & wellness Hub",
         path: "/Health_&_wellness",
         newTab: false,
       },

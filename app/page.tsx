@@ -26,9 +26,7 @@ export default function Home() {
       <Features />
       <AboutSectionOne />
       <AboutSectionTwo />
-
-{/* deleted testimonials component */}
-
+      <Testimonials />
       <Contact />
     </>
   );
