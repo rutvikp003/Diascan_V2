@@ -144,8 +144,8 @@ export function DosAndDontsSection() {
         </div>
       </div>
 
-      <div className="hidden md:grid md:grid-cols-2 gap-6">
-        <div className="border border-blue-100 rounded-lg overflow-hidden">
+      <div className="hidden md:grid do md:grid-cols-2 gap-6">
+        <div className="border border-blue-100 bg-white rounded-lg overflow-hidden">
           <div className="bg-blue-50 px-4 py-3 border-b border-blue-100">
             <h3 className="text-blue-700 font-medium flex items-center gap-2">
               <svg
@@ -168,7 +168,7 @@ export function DosAndDontsSection() {
           <div className="p-4">
             <ul className="space-y-2">
               {dos.map((item, index) => (
-                <li key={index} className="flex items-start gap-2">
+                <li key={index} className="flex items-start text-dark gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -190,7 +190,7 @@ export function DosAndDontsSection() {
           </div>
         </div>
 
-        <div className="border border-red-100 rounded-lg overflow-hidden">
+        <div className="border border-red-100 bg-white rounded-lg overflow-hidden">
           <div className="bg-red-50 px-4 py-3 border-b border-red-100">
             <h3 className="text-red-700 font-medium flex items-center gap-2">
               <svg
@@ -214,7 +214,7 @@ export function DosAndDontsSection() {
           <div className="p-4">
             <ul className="space-y-2">
               {donts.map((item, index) => (
-                <li key={index} className="flex items-start gap-2">
+                <li key={index} className="flex items-start text-dark gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"

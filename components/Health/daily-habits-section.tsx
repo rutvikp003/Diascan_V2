@@ -156,10 +156,10 @@ export function DailyHabitsSection() {
 
   return (
     <section className="py-12 shadow-xl">
-      <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">📋 Daily Habits Checklist</h2>
-      <p className="text-center text-gray-600 mb-8">Track your daily diabetes management habits</p>
+      <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2 text-center">📋 Daily Habits Checklist</h2>
+      <p className="text-center text-gray-400 mb-8">Track your daily diabetes management habits</p>
 
-      <div className="border border-teal-100 rounded-lg shadow-sm">
+      <div className="border border-teal-100 bg-white rounded-lg shadow-sm">
         <div className="p-4 border-b border-teal-100">
           <h3 className="text-xl text-teal-700 flex justify-between items-center">
             <span>Today's Progress</span>
@@ -182,7 +182,7 @@ export function DailyHabitsSection() {
                       type="checkbox"
                       checked={checkedItems[habit.id]}
                       onChange={() => handleCheckChange(habit.id)}
-                      className="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+                      className="h-4 w-4 rounded border-gray-300 bg-white text-teal-600 focus:ring-teal-500"
                     />
                   </div>
                 </div>

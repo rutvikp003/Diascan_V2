@@ -77,7 +77,6 @@ const Dashboard = () => {
                 <DataCard
                   title="Age"
                   value={latest.age || '-'}
-                  change={calculateChange(latest.c_peptide, previous?.c_peptide)}
                 />
                 <DataCard
                   title="Glucose Level"
