@@ -1,0 +1,22 @@
+/* styles/routing.css */
+
+.leaflet-routing-container {
+    background-color: white !important;
+    color: black !important;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .leaflet-routing-container h2,
+  .leaflet-routing-container .leaflet-routing-alt h3 {
+    color: black !important;
+  }
+  
+  .leaflet-routing-alt,
+  .leaflet-routing-alt .leaflet-routing-instruction {
+    color: black !important;
+  }
+  

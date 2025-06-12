@@ -1,6 +1,36 @@
+"use client";
+import React, {useState} from "react";
 import NewsLatterBox from "./NewsLatterBox";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: "",
+});
+  
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("Your message was sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("There was an error submitting the form.");
+  }
+};
+
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -30,6 +60,13 @@ const Contact = () => {
                       <input
                         type="text"
                         placeholder="Enter your name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            name: e.target.value,
+                          })
+                        }
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -45,6 +82,13 @@ const Contact = () => {
                       <input
                         type="email"
                         placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            email: e.target.value,
+                          })
+                        }
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                       />
                     </div>
@@ -61,12 +105,24 @@ const Contact = () => {
                         name="message"
                         rows={5}
                         placeholder="Enter your Message"
+                        value={formData.message}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            message: e.target.value,
+                          })
+                        }
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
                       ></textarea>
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button className="shadow-submit dark:shadow-submit-dark rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
+                    <button 
+                      onClick={handleSubmit}
+                      type="submit"
+                      className="shadow-submit dark:shadow-submit-dark rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90"
+                      data-wow-delay=".15s"
+                    >
                       Submit Ticket
                     </button>
                   </div>

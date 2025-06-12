@@ -169,7 +169,8 @@ export default function Hospitals() {
 
         {location && (
           <Map
-            center={[location.lat, location.lon]}
+            // key={`${location.lat}-${location.lon}`} // ✅ Add this line
+            center={location}
             hospitals={hospitals}
             userLocation={location}
             destination={destination || undefined}

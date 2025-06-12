@@ -1,104 +1,133 @@
 "use client";
 
+/// <reference path="../app/utils/leaflet-routing-machine.d.ts" />
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Popup, Polyline, useMap } from "react-leaflet";
-import { Marker } from 'react-leaflet';
-import L, { Icon } from 'leaflet';
-
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+// @ts-ignore
+import "leaflet-routing-machine";
+import L from "leaflet";
+import "@/styles/routing.css"; // Optional for styling route lines
 
+// Custom Icons
+const userIcon = new L.Icon({
+  iconUrl: "/location-pin.png",
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+});
 
-const userIcon: L.Icon<any> = L.icon({
-    iconUrl: "/location-pin.png",
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
-  
-  const hospitalIcon: L.Icon<any> = L.icon({
-    iconUrl: "/hospital.png",
-    iconSize: [35, 35],
-    iconAnchor: [17, 35],
-  });
-  
+const hospitalIcon = new L.Icon({
+  iconUrl: "/hospital.png",
+  iconSize: [35, 35],
+  iconAnchor: [17, 35],
+});
 
-interface Hospital {
-  name: string;
-  address: string;
-  lat: number;
-  lon: number;
-}
-
+// Props Interface
 interface MapProps {
-  center: [number, number];
-  zoom?: number;
-  hospitals: Hospital[];
+  center: { lat: number; lon: number };
+  hospitals: { name: string; address: string; lat: number; lon: number }[];
   userLocation: { lat: number; lon: number };
   destination?: { lat: number; lon: number };
   route: { lat: number; lon: number }[];
   tileLayerUrl?: string;
-  travelMode: "drive" | "walk" | "bicycle";
-  onHospitalClickAction?: (hospital: Hospital) => void; // ✅ New optional prop
+  travelMode: "drive" | "walk" | "bicycle"; // ✅ Add this line
+    onHospitalClickAction: (hospital: {
+    name: string;
+    address: string;
+    lat: number;
+    lon: number;
+  }) => void | Promise<void>;
 }
 
-function UpdateMapView({ center, zoom = 13 }: { center: [number, number]; zoom?: number }) {
+// Routing Control
+const Routing = ({
+  userLocation,
+  destination,
+}: {
+  userLocation: any;
+  destination: any;
+}) => {
   const map = useMap();
-  useEffect(() => {
-    map.setView(center, zoom);
-  }, [center, zoom, map]);
-  return null;
-}
 
+  useEffect(() => {
+    if (!map || !userLocation || !destination) return;
+
+    const routingControl = L.Routing.control({
+      waypoints: [
+        L.latLng(userLocation.lat, userLocation.lon),
+        L.latLng(destination.lat, destination.lon),
+      ],
+      lineOptions: {
+        styles: [{ color: "#007bff", weight: 5 }],
+      },
+      show: false,
+      addWaypoints: false,
+      routeWhileDragging: false,
+      draggableWaypoints: false,
+      fitSelectedRoutes: true,
+    }).addTo(map);
+
+    return () => {
+      map.removeControl(routingControl);
+    };
+  }, [userLocation, destination, map]);
+
+  return null;
+};
+
+// Map Component
 export default function Map({
   center,
-  zoom = 13,
   hospitals,
   userLocation,
   destination,
-  route,
-  tileLayerUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  travelMode,
-  onHospitalClickAction,
+  route = [],
+  tileLayerUrl,
 }: MapProps) {
-  const polylinePositions = route.map((point) => [point.lat, point.lon]) as [number, number][];
-
   return (
-    <MapContainer
-    center={center as [number, number]}
-    zoom={zoom}
-    className="h-[500px] w-full rounded-lg shadow-lg z-0"
-    >
-      <UpdateMapView center={center} zoom={zoom} />
-      <TileLayer url={tileLayerUrl} />
+    <div className="rounded-xl border-2 border-gray-300 shadow-lg overflow-hidden">
+      <MapContainer
+        center={[center.lat, center.lon]}
+        zoom={14}
+        scrollWheelZoom={true}
+        className="h-[500px] w-full z-0"
+      >
+        <TileLayer
+          url={tileLayerUrl || "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
 
-      {/* User marker */}
-      <Marker position={[userLocation.lat, userLocation.lon]} icon={userIcon}>
-        <Popup>You are here</Popup>
-      </Marker>
-
-      {/* Hospital markers */}
-      {hospitals.map((hospital, index) => (
-        <Marker
-          key={index}
-          position={[hospital.lat, hospital.lon]}
-          icon={hospitalIcon as L.Icon}
-          eventHandlers={{
-            click: () => {
-              if (onHospitalClickAction) onHospitalClickAction(hospital);
-            },
-          }}
-        >
-          <Popup>
-            <strong>{hospital.name}</strong>
-            <br />
-            {hospital.address}
-          </Popup>
+        {/* User Location */}
+        <Marker position={[userLocation.lat, userLocation.lon]} icon={userIcon}>
+          <Popup>📍 Your Location</Popup>
         </Marker>
-      ))}
 
-      {/* Route polyline */}
-      {polylinePositions.length > 1 && (
-        <Polyline positions={polylinePositions} pathOptions={{ color: "#3B82F6", weight: 5 }} />
-      )}
-    </MapContainer>
+        {/* Hospital Markers */}
+        {hospitals.map((hospital, index) => (
+          <Marker
+            key={index}
+            position={[hospital.lat, hospital.lon]}
+            icon={hospitalIcon}
+          >
+            <Popup>
+              <strong>{hospital.name}</strong>
+              <br />
+              {hospital.address}
+            </Popup>
+          </Marker>
+        ))}
+
+        {/* Route */}
+        {userLocation && destination && (
+          <Routing userLocation={userLocation} destination={destination} />
+        )}
+      </MapContainer>
+    </div>
   );
 }

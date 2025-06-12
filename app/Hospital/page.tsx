@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Hospitals  from "../../components/Hospital/Hospitals";
+import Hospitals from "@/components/Hospitals-page/hospital-l";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <p className="text-lg text-gray-700 text-center max-w-md mb-6">
         Easily locate nearby hospitals and get directions with just one click!
       </p>
-        <Hospitals/>
+      <Hospitals/>
     </div>
   );
 }
