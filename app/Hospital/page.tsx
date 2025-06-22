@@ -6,7 +6,7 @@ import { getDistance } from "@/utils/distance";
 import dynamic from "next/dynamic";
 import { ClipLoader } from "react-spinners";
 
-const Map = dynamic(() => import("@/components/Hospital/Map"), { ssr: false });
+const Map = dynamic(() => import("@/components/Map/Map"), { ssr: false });
 
 export default function Hospitals() {
   const [hospitals, setHospitals] = useState<
