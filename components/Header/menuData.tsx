@@ -89,11 +89,6 @@ const menuData: Menu[] = [
         title: "Health & wellness Hub",
         path: "/Health_&_wellness",
         newTab: false,
-      },      {
-        id: 60,
-        title: "Hospital Finder",
-        path: "/Hospital",
-        newTab: false,
       },
     ],
   },

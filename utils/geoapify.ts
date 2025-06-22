@@ -8,6 +8,8 @@ export interface Hospital {
 }
 
 export interface RouteData {
+  features: any;
+  features(features: any): unknown;
   coordinates: { lat: number; lon: number }[];
   distance: number; // in meters
   duration: number; // in seconds

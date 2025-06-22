@@ -36,13 +36,6 @@ interface MapProps {
   destination?: { lat: number; lon: number };
   route: { lat: number; lon: number }[];
   tileLayerUrl?: string;
-  travelMode: "drive" | "walk" | "bicycle"; // ✅ Add this line
-    onHospitalClickAction: (hospital: {
-    name: string;
-    address: string;
-    lat: number;
-    lon: number;
-  }) => void | Promise<void>;
 }
 
 // Routing Control
